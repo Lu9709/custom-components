@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Lu9709/custom-components/issues"
   },
-  "homepage": "https://github.com/Lu9709/custom-components#readme"
+  "homepage": "https://github.com/Lu9709/custom-components#readme",
+  "dependencies": {
+    "vue": "^2.6.14"
+  }
 }
