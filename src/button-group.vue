@@ -3,7 +3,14 @@
 </template>
 <script>
 export default {
-
+  mounted(){
+    for(let node of this.$el.children){
+      let newNode = node.nodeName.toLowerCase()
+      if(newNode !== 'button'){
+        console.warn(`g-button-group的子级元素为g-button,而你使用的是${newNode}`)
+      }
+    }
+  }
 }
 </script>
 <style lang="scss">
