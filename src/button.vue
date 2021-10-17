@@ -6,7 +6,16 @@
 </template>
 <script>
 export default {
-  props:['icon','iconPosition']
+  props:{
+    icon:{},
+    iconPosition:{
+      type:String,
+      default:'left',
+      validator(value){ //属性的检查器
+        return value === 'left' || value === 'right';
+      }
+    }
+  }
 }
 </script>
 <style lang="scss">

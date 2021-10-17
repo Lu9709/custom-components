@@ -12490,7 +12490,17 @@ exports.default = void 0;
 //
 //
 var _default = {
-  props: ['icon', 'iconPosition']
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: 'left',
+      validator: function validator(value) {
+        //属性的检查器
+        return value === 'left' || value === 'right';
+      }
+    }
+  }
 };
 exports.default = _default;
         var $9066a2 = exports.default || module.exports;
