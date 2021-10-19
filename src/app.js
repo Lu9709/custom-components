@@ -16,6 +16,9 @@ new Vue({
 })
 
 import chai from 'chai'
+import spies from 'chai-spies'
+
+chai.use(spies)
 const expect= chai.expect
 //单元测试
 {
@@ -65,36 +68,37 @@ const expect= chai.expect
   vm.$el.remove()
   vm.$destroy()
 }
-// {
-//   const div = document.createElement('div')
-//   document.body.appendChild(div)
-//   const Constructor  = Vue.extend(Button)
-//   const vm = new Constructor({
-//     propsData:{
-//       icon:'setting',
-//       iconPosition:'right'
-//     }
-//   })
-//   vm.$mount(div)
-//   let svg = vm.$el.querySelector('svg')
-//   let {order} = window.getComputedStyle(svg)
-//   expect(order).to.eq('2')
-//   vm.$el.remove()
-//   vm.$destroy()
-// }
-//mock
-// {
-//   const Constructor  = Vue.extend(Button)
-//   const vm = new Constructor({
-//     propsData:{
-//       icon:'setting',
-//       iconPosition:'right'
-//     }
-//   })
-//   vm.$mount()
-//   vm.$on('click',function () {
-//     expect(1).to.eq(1)
-//   })
-//   // let button = vm.$el
-//   // button.click()
-// }
+{
+  const div = document.createElement('div')
+  document.body.appendChild(div)
+  const Constructor  = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      icon:'setting',
+      iconPosition:'right'
+    }
+  })
+  vm.$mount(div)
+  let svg = vm.$el.querySelector('svg')
+  let {order} = window.getComputedStyle(svg)
+  expect(order).to.eq('2')
+  vm.$el.remove()
+  vm.$destroy()
+}
+// mock
+{
+  const Constructor  = Vue.extend(Button)
+  const vm = new Constructor({
+    propsData:{
+      icon:'setting',
+      iconPosition:'right'
+    }
+  })
+  vm.$mount()
+  let spy=chai.spy(function (){})
+
+  vm.$on('click',spy)
+  let button = vm.$el
+  button.click()
+  expect(spy).to.have.been.called()
+}
