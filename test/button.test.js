@@ -5,6 +5,7 @@ import Button from '../src/button'
 Vue.config.productionTip = false
 Vue.config.devtools = false
 
+// BDD 行为驱动测试 Mocha
 describe('Button', () => {
   it('存在.', () => {
     expect(Button).to.be.ok
@@ -70,7 +71,7 @@ describe('Button', () => {
       }
     }).$mount()
 
-    const callback = sinon.fake();
+    const callback = sinon.fake();  //sinon库提供fake函数，可以知道函数被调用和传入的参数
     vm.$on('click', callback)
     vm.$el.click()
     expect(callback).to.have.been.called
