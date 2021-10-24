@@ -37,7 +37,10 @@
     <g-input placeholder="德莱尼人" readonly></g-input>
   </div>
   <div class="box">
-    <g-input placeholder="恶魔" error="姓名不能少于两个字"></g-input>
+    <g-input placeholder="魔" @change="inputChange"></g-input>
+  </div>
+  <div class="box">
+    <g-input placeholder="魔" error="姓名不能少于两个字"></g-input>
   </div>
   <div style="margin: 20px">
     <g-button :loading="loading1" @click="loading1 = !loading1">按钮</g-button>

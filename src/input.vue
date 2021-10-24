@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper" :class="{'error':error}">
-    <input :value="placeholder" :disabled="disabled" :readonly="readonly" type="text">
+    <input :value="placeholder" :disabled="disabled" :readOnly="readOnly" type="text"
+           @change="$emit('change',$event)"
+           @input="$emit('input',$event)"
+           @focus="$emit('focus',$event)"
+           @blur="$emit('blur',$event)"
+    >
     <template v-if="error">
       <icon name="error" class="icon-error"></icon>
       <span class="errorMessage">{{error}}</span>
@@ -24,13 +29,12 @@ export default {
       type:Boolean,
       default: false
     },
-    readonly:{
+    readOnly:{
       type:Boolean,
       default:false
     },
     error:{
-      type:String,
-      default:false
+      type:String
     }
   }
 }
