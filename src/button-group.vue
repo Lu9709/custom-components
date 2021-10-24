@@ -3,6 +3,7 @@
 </template>
 <script>
 export default {
+  name:"BaiButtonGroup",
   mounted(){
     for(let node of this.$el.children){
       let newNode = node.nodeName.toLowerCase()
@@ -13,7 +14,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .g-button-group{
     display: inline-flex;
     vertical-align: middle;
