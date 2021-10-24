@@ -37,7 +37,8 @@
     <g-input placeholder="德莱尼人" readonly></g-input>
   </div>
   <div class="box">
-    <g-input placeholder="魔" @change="inputChange"></g-input>
+    <g-input v-model="message"></g-input>
+    {{message}}
   </div>
   <div class="box">
     <g-input placeholder="魔" error="姓名不能少于两个字"></g-input>
